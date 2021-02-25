@@ -1,0 +1,111 @@
+.mini-health-bar {
+    display: flex;
+    align-items: center;
+}
+
+.mini-health-bar > div {
+    flex: 1;
+    border-radius: 4px;
+    background: var(--gray-line);
+    position: relative;
+}
+
+.mini-health-bar > div > div {
+    height: 28px;
+    border-radius: 4px;
+    transition: width 2s;
+    background: var(--green);
+}
+
+span.mini-current-health {
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/*
+ PLAYER
+*/
+
+.status-live-game-card {
+    background: var(--white);
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+.status-live-game-card-content {
+    margin: 1.5rem 1.5rem;
+}
+
+.status-live-game-card-table {
+    width: 100%;
+}
+
+.player-champion-info {
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.player-champion-info-level{
+    position: absolute;
+    transform: translate(-50%, 100%);
+    font-size: 12px;
+}
+
+.player-champion-info-name {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card-player-name {
+    font-size: 10px;
+}
+
+.player-champion {
+    width: 32px;
+    border-radius: 50%;
+    background: var(--gray-line);
+}
+
+.table-top-row {
+    height: 28px;
+}
+
+.table-top-row-vida{
+    height: 28px;
+    width: 15rem;
+}
+
+.table-top-row-champion{
+    width: 12rem;
+}
+
+.player-stats {
+    /*width: 64px;*/
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 400;
+    background: var(--gray-line);
+    text-align: center;
+    border-radius: 3px;
+}
+
+.player-stats-kda {
+    width: 32px;
+}
+
+.player-gold-positive {
+    color: var(--green-positive);
+    font-weight: 500;
+}
+
+.player-gold-negative {
+    color: var(--red);
+    font-weight: 500;
+}
