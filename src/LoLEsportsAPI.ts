@@ -12,11 +12,11 @@ export function getLiveGames() {
     })
 }
 
-export function getLiveGame(gameId: string) {
+export function getLiveGame(gameId: string, date: string) {
     return axios.get(`${API_URL_LIVE}/window/${gameId}`, {
         params: {
             "hl": "pt-BR",
-            "startingTime": getISODateMultiplyOf10(),
+            "startingTime": date,
         },
         headers: {
             "x-api-key": API_KEY,
@@ -24,9 +24,22 @@ export function getLiveGame(gameId: string) {
     })
 }
 
-function getISODateMultiplyOf10() {
+export function getISODateMultiplyOf10() {
     let date = new Date(Date.now() - 16000);
     date.setMilliseconds(0);
+
+    if(date.getSeconds() % 10 !== 0) {
+        date.setSeconds(date.getSeconds() - date.getSeconds() % 10);
+    }
+
+    return date.toISOString();
+}
+
+export function convertISODateToMultiplyOf10(stringDate: string){
+    let date = new Date(stringDate);
+
+    date.setMilliseconds(0);
+    date.setSeconds(date.getSeconds() - 16)
 
     if(date.getSeconds() % 10 !== 0) {
         date.setSeconds(date.getSeconds() - date.getSeconds() % 10);

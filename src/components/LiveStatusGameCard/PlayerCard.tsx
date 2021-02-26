@@ -1,7 +1,7 @@
 import './playerStatusStyle.css'
 
 import {Redirect} from 'react-router-dom';
-import {getLiveGame} from "../../LoLEsportsAPI";
+import {convertISODateToMultiplyOf10, getISODateMultiplyOf10, getLiveGame} from "../../LoLEsportsAPI";
 import {useEffect, useState} from "react";
 import {Frame, GameMetadata, Participant} from "./windowLiveTypes";
 import {MiniHealthBar} from "./MiniHealthBar";
@@ -14,21 +14,55 @@ export function PlayerCard({ match }: any) {
     const gameId = match.params.gameid;
 
     useEffect(() => {
-        getLiveGame(gameId).then(response => {
+        getLiveGame(gameId, getISODateMultiplyOf10()).then(response => {
             let frames = response.data.frames;
             setLastFrame(frames[frames.length - 1])
             setMetadata(response.data.gameMetadata)
-        }).catch(error =>
-            console.log(error)
+        }).catch(error => {
+
+                if(error.response.status === 400){
+                    let preDate = error.response.data.message.split("current time: ");
+                    if(preDate.length > 1) {
+                        let date = preDate[1].split('.');
+                        date = date[0] + ".000Z"
+                        getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                            let frames = response.data.frames;
+                            setLastFrame(frames[frames.length - 1])
+                            setMetadata(response.data.gameMetadata)
+                        }).catch(error => {
+                                console.log(error)
+                            }
+                        )
+                    }
+                }
+
+            }
         )
 
         const intervalId = setInterval(() => {
-            getLiveGame(gameId).then(response => {
+            getLiveGame(gameId, getISODateMultiplyOf10()).then(response => {
                 let frames = response.data.frames;
                 setLastFrame(frames[frames.length - 1])
                 setMetadata(response.data.gameMetadata)
-            }).catch(error =>
-                console.log(error)
+            }).catch(error => {
+
+                    if(error.response.status === 400){
+                        let preDate = error.response.data.message.split("current time: ");
+                        if(preDate.length > 1) {
+                            let date = preDate[1].split('.');
+                            date = date[0] + ".000Z"
+                            getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                                let frames = response.data.frames;
+                                setLastFrame(frames[frames.length - 1])
+                                setMetadata(response.data.gameMetadata)
+                            }).catch(error => {
+                                    console.log(error)
+                                }
+                            )
+                        }
+                    }
+
+                }
             )
         }, 3000);
 
