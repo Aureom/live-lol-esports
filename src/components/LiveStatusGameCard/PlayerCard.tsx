@@ -20,19 +20,21 @@ export function PlayerCard({ match }: any) {
             setMetadata(response.data.gameMetadata)
         }).catch(error => {
 
-                if(error.response.status === 400){
-                    let preDate = error.response.data.message.split("current time: ");
-                    if(preDate.length > 1) {
-                        let date = preDate[1].split('.');
-                        date = date[0] + ".000Z"
-                        getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
-                            let frames = response.data.frames;
-                            setLastFrame(frames[frames.length - 1])
-                            setMetadata(response.data.gameMetadata)
-                        }).catch(error => {
-                                console.log(error)
-                            }
-                        )
+                if(error.reponse !== undefined) {
+                    if (error.response.status === 400) {
+                        let preDate = error.response.data.message.split("current time: ");
+                        if (preDate.length > 1) {
+                            let date = preDate[1].split('.');
+                            date = date[0] + ".000Z"
+                            getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                                let frames = response.data.frames;
+                                setLastFrame(frames[frames.length - 1])
+                                setMetadata(response.data.gameMetadata)
+                            }).catch(error => {
+                                    console.log(error)
+                                }
+                            )
+                        }
                     }
                 }
 
@@ -46,19 +48,21 @@ export function PlayerCard({ match }: any) {
                 setMetadata(response.data.gameMetadata)
             }).catch(error => {
 
-                    if(error.response.status === 400){
-                        let preDate = error.response.data.message.split("current time: ");
-                        if(preDate.length > 1) {
-                            let date = preDate[1].split('.');
-                            date = date[0] + ".000Z"
-                            getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
-                                let frames = response.data.frames;
-                                setLastFrame(frames[frames.length - 1])
-                                setMetadata(response.data.gameMetadata)
-                            }).catch(error => {
-                                    console.log(error)
-                                }
-                            )
+                    if(error.reponse !== undefined) {
+                        if (error.response.status === 400) {
+                            let preDate = error.response.data.message.split("current time: ");
+                            if (preDate.length > 1) {
+                                let date = preDate[1].split('.');
+                                date = date[0] + ".000Z"
+                                getLiveGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                                    let frames = response.data.frames;
+                                    setLastFrame(frames[frames.length - 1])
+                                    setMetadata(response.data.gameMetadata)
+                                }).catch(error => {
+                                        console.log(error)
+                                    }
+                                )
+                            }
                         }
                     }
 
