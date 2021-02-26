@@ -25,7 +25,7 @@ export function getLiveGame(gameId: string, date: string) {
 }
 
 export function getISODateMultiplyOf10() {
-    let date = new Date(Date.now() - 16000);
+    let date = new Date(Date.now() - 11000);
     date.setMilliseconds(0);
 
     if(date.getSeconds() % 10 !== 0) {
