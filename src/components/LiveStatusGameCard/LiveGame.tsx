@@ -45,22 +45,24 @@ export function LiveGame({ match }: any) {
 
             getLiveWindowGame(gameId, getISODateMultiplyOf10()).then(response => {
                 let frames = response.data.frames;
+                if(frames === undefined) return;
+
                 setLastFrameWindow(frames[frames.length - 1])
                 setMetadata(response.data.gameMetadata)
             }).catch(error => {
 
                     if (error.response?.status === 400) {
-                        if(error.response.data !== undefined) {
-                            let preDate = error.response.data.message.split("current time: ");
-                            if (preDate.length > 1) {
-                                let date = preDate[1].split('.');
-                                date = date[0] + ".000Z"
-                                getLiveWindowGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
-                                    let frames = response.data.frames;
-                                    setLastFrameWindow(frames[frames.length - 1])
-                                    setMetadata(response.data.gameMetadata)
-                                })
-                            }
+                        let preDate = error.response.data.message.split("current time: ");
+                        if (preDate.length > 1) {
+                            let date = preDate[1].split('.');
+                            date = date[0] + ".000Z"
+                            getLiveWindowGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                                let frames = response.data.frames;
+                                if(frames === undefined) return;
+
+                                setLastFrameWindow(frames[frames.length - 1])
+                                setMetadata(response.data.gameMetadata)
+                            })
                         }
                     }
 
@@ -72,6 +74,8 @@ export function LiveGame({ match }: any) {
 
             getLiveDetailsGame(gameId, getISODateMultiplyOf10()).then(response => {
                 let frames = response.data.frames;
+                if(frames === undefined) return;
+
                 setLastFrameDetails(frames[frames.length - 1])
             }).catch(error => {
 
@@ -82,8 +86,9 @@ export function LiveGame({ match }: any) {
                                 let date = preDate[1].split('.');
                                 date = date[0] + ".000Z"
                                 getLiveDetailsGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
-                                    console.log(response.data.frames);
                                     let frames = response.data.frames;
+                                    if(frames === undefined) return;
+
                                     setLastFrameDetails(frames[frames.length - 1])
                                 })
                             }
