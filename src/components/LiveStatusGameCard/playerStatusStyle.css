@@ -6,6 +6,7 @@
 .mini-health-bar > div {
     flex: 1;
     border-radius: 4px;
+    min-width: 5rem;
     background: var(--gray-line);
     position: relative;
 }
@@ -27,6 +28,94 @@ span.mini-current-health {
 }
 
 /*
+ HEADER
+*/
+
+.live-game-stats-header-status {
+    display: flex;
+}
+
+.live-game-stats-header-status > .blue-team > .team-stats > svg > path {
+    fill: var(--blue-twitter);
+}
+
+.live-game-stats-header-status > .blue-team > .team-stats > svg > g {
+    fill: var(--blue-twitter);
+}
+
+.live-game-stats-header-status > .red-team > .team-stats > svg > path {
+    fill: var(--red);
+}
+
+.live-game-stats-header-status > .red-team > .team-stats > svg > g {
+    fill: var(--red);
+}
+
+.live-game-stats-header-status > .blue-team {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15rem;
+}
+
+.live-game-stats-header-status > .red-team {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.team-stats {
+    color: var(--text);
+    display: inline-block;
+    text-align: center;
+    width: 24px;
+}
+
+/*
+Gold bar
+*/
+
+.live-game-stats-header-gold {
+    margin: 1rem 0;
+    display: flex;
+}
+
+.live-game-stats-header-gold > .blue-team {
+    border-bottom: 4px solid var(--blue-twitter);
+}
+
+.live-game-stats-header-gold > .red-team {
+    border-bottom: 4px solid var(--red);
+}
+
+/*
+Status dragons
+*/
+.live-game-stats-header-dragons{
+    display: flex;
+    min-height: 24px;
+}
+
+.live-game-stats-header-dragons > .blue-team {
+    flex: 1;
+}
+
+.live-game-stats-header-dragons > .red-team {
+    text-align: right;
+    flex: 1;
+}
+
+.blue-team > .dragon {
+    margin-right: 0.75rem;
+}
+
+.red-team > .dragon {
+    margin-left: 0.75rem;
+}
+
+/*
  PLAYER
 */
 
@@ -38,6 +127,7 @@ span.mini-current-health {
 
 .status-live-game-card-content {
     margin: 1.5rem 1.5rem;
+    overflow-x: auto;
 }
 
 .status-live-game-card-table {
@@ -108,4 +198,16 @@ span.mini-current-health {
 .player-gold-negative {
     color: var(--red);
     font-weight: 500;
+}
+
+.loading-game-container {
+    width:100%;
+    height:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-game-image{
+    width: 20%;
 }

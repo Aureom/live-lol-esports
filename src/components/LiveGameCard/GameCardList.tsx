@@ -2,7 +2,6 @@ import {GameCard} from "./GameCard";
 import {Event} from "./liveGameTypes";
 
 import Galaxy from "../../assets/images/galaxy.svg"
-import BigNumber from "bignumber.js";
 
 type Props = {
     games: Event[];
@@ -10,15 +9,13 @@ type Props = {
 
 export function GameCardList({ games }: Props) {
     if (games !== undefined && games.length !== 0) {
-        const matchId = new BigNumber("105562692794240187");
-        const gameId = BigNumber.sum(matchId, 1)
 
         return (
             <div className="games-list-container">
                 <div className="games-list-items">
                     {games.map(game => (
                         <GameCard
-                            key={gameId.toString()}
+                            key={game.id}
                             game={game}
                         />
                     ))}

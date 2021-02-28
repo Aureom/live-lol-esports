@@ -1,17 +1,13 @@
 import {Link} from "react-router-dom";
 import {Event} from "./liveGameTypes";
-import BigNumber from "bignumber.js";
 
 type Props = {
     game: Event;
 }
 
 export function GameCard({ game }: Props) {
-    const matchId = new BigNumber(game.id);
-    const gameId = BigNumber.sum(matchId, 1).toString()
-
     return (
-        <Link to={`live/${gameId}`}>
+        <Link to={`live/${game.id}`}>
             <div className="live-game-card">
                 <div className="live-game-card-team">
                     <img className="live-game-card-team-image" src={game.match.teams[0].image}
