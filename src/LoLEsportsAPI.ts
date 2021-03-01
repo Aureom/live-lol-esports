@@ -64,7 +64,7 @@ export function convertISODateToMultiplyOf10(stringDate: string){
     let date = new Date(stringDate);
 
     date.setMilliseconds(0);
-    date.setSeconds(date.getSeconds() - 21)
+    date.setSeconds(date.getSeconds() - 15)
 
     if(date.getSeconds() % 10 !== 0) {
         date.setSeconds(date.getSeconds() - date.getSeconds() % 10);
