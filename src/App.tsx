@@ -3,8 +3,9 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import {LiveGame} from "./components/LiveStatusGameCard/LiveGame";
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
-import {Navbar} from "./components/Navbar/Navbar";
+import {Footer} from "./components/Footer/Footer";
 import {LiveGames} from "./components/LiveGameCard/LiveGames";
+import {Navbar} from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                   <Redirect to="/"/>
               </Switch>
           </div>
+          <Footer/>
       </Router>
   );
 }
