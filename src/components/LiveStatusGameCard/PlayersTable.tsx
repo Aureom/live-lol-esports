@@ -82,7 +82,8 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                             ))}
                         </div>
                         <div className="red-team">
-                            {lastFrameWindow.redTeam.dragons.map(dragon => (
+
+                            {lastFrameWindow.redTeam.dragons.slice().reverse().map(dragon => (
                                 getDragonSVG(dragon)
                             ))}
                         </div>
