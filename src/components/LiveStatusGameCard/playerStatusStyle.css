@@ -73,6 +73,11 @@ span.mini-current-health {
     width: 24px;
 }
 
+.team-stats > span {
+    display: flex;
+    justify-content: center;
+}
+
 /*
 Gold bar
 */

@@ -9,6 +9,7 @@ import {Frame as FrameWindow, Participant as ParticipantWindow} from "./types/wi
 import {ReactComponent as TowerSVG} from '../../assets/images/tower.svg';
 import {ReactComponent as BaronSVG} from '../../assets/images/baron.svg';
 import {ReactComponent as KillSVG} from '../../assets/images/kill.svg';
+import {ReactComponent as GoldSVG} from '../../assets/images/gold.svg';
 import {ReactComponent as InhibitorSVG} from '../../assets/images/inhibitor.svg';
 
 import {ReactComponent as OceanDragonSVG} from '../../assets/images/dragon-ocean.svg';
@@ -47,6 +48,12 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                                 <TowerSVG/>
                                 {lastFrameWindow.blueTeam.towers}
                             </div>
+                            <div className="team-stats gold">
+                                <GoldSVG/>
+                                <span>
+                                    {Number(lastFrameWindow.blueTeam.totalGold).toLocaleString('pt-br')}
+                                </span>
+                            </div>
                             <div className="team-stats kills">
                                 <KillSVG/>
                                 {lastFrameWindow.blueTeam.totalKills}
@@ -64,6 +71,12 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                             <div className="team-stats">
                                 <TowerSVG/>
                                 {lastFrameWindow.redTeam.towers}
+                            </div>
+                            <div className="team-stats gold">
+                                <GoldSVG/>
+                                <span>
+                                    {Number(lastFrameWindow.redTeam.totalGold).toLocaleString('pt-br')}
+                                </span>
                             </div>
                             <div className="team-stats">
                                 <KillSVG/>
@@ -93,7 +106,8 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                 <table className="status-live-game-card-table">
                     <thead>
                     <tr>
-                        <th className="table-top-row-champion" title="champion/team"/>
+                        <th className="table-top-row-champion" title="champion/team">
+                        </th>
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
                         </th>
