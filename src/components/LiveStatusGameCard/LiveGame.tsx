@@ -2,7 +2,7 @@ import './playerStatusStyle.css'
 
 import {Redirect} from 'react-router-dom';
 import {
-    convertISODateToMultiplyOf10,
+    dateFixWindowTime,
     getISODateMultiplyOf10,
     getLiveDetailsGame,
     getLiveWindowGame
@@ -42,8 +42,8 @@ export function LiveGame({ match }: any) {
         }
 
         function getLiveWindow(){
-
-            getLiveWindowGame(gameId, getISODateMultiplyOf10()).then(response => {
+            let date = getISODateMultiplyOf10();
+            getLiveWindowGame(gameId, date).then(response => {
                 let frames = response.data.frames;
                 if(frames === undefined) return;
 
@@ -52,11 +52,10 @@ export function LiveGame({ match }: any) {
             }).catch(error => {
 
                     if (error.response?.status === 400) {
-                        let preDate = error.response.data.message.split("current time: ");
-                        if (preDate.length > 1) {
-                            let date = preDate[1].split('.');
-                            date = date[0] + ".000Z"
-                            getLiveWindowGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                        let secondsDifference = error.response.data.message.split("10 sec old (was ");
+                        if (secondsDifference.length > 1) {
+                            let seconds = secondsDifference[1].split(" sec old).")[0];
+                            getLiveWindowGame(gameId, dateFixWindowTime(date, seconds)).then(response => {
                                 let frames = response.data.frames;
                                 if(frames === undefined) return;
 
@@ -71,8 +70,8 @@ export function LiveGame({ match }: any) {
         }
 
         function getLiveGameStatus() {
-
-            getLiveDetailsGame(gameId, getISODateMultiplyOf10()).then(response => {
+            let date = getISODateMultiplyOf10();
+            getLiveDetailsGame(gameId, date).then(response => {
                 let frames = response.data.frames;
                 if(frames === undefined) return;
 
@@ -81,11 +80,10 @@ export function LiveGame({ match }: any) {
 
                     if (error.response?.status === 400) {
                         if(error.response.data !== undefined) {
-                            let preDate = error.response.data.message.split("current time: ");
-                            if (preDate.length > 1) {
-                                let date = preDate[1].split('.');
-                                date = date[0] + ".000Z"
-                                getLiveDetailsGame(gameId, convertISODateToMultiplyOf10(date)).then(response => {
+                            let secondsDifference = error.response.data.message.split("10 sec old (was ");
+                            if (secondsDifference.length > 1) {
+                                let seconds = secondsDifference[1].split(" sec old).")[0];
+                                getLiveDetailsGame(gameId, dateFixWindowTime(date, seconds)).then(response => {
                                     let frames = response.data.frames;
                                     if(frames === undefined) return;
 
