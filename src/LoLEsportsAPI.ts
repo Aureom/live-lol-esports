@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL_PERSISTED = "https://esports-api.lolesports.com/persisted/gw/"
+const API_URL_PERSISTED = "https://esports-api.lolesports.com/persisted/gw"
 const API_URL_LIVE = "https://feed.lolesports.com/livestats/v1"
 const API_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
 
 export function getLiveGames() {
-    return axios.get(`${API_URL_PERSISTED}getLive?hl=pt-BR`, {
+    return axios.get(`${API_URL_PERSISTED}/getLive?hl=pt-BR`, {
         headers: {
             "x-api-key": API_KEY,
         },
@@ -37,7 +37,7 @@ export function getLiveDetailsGame(gameId: string, date: string) {
 }
 
 export function getGameDetails(gameId: string) {
-    return axios.get(`${API_URL_LIVE}/getEventDetails`, {
+    return axios.get(`${API_URL_PERSISTED}/getEventDetails`, {
         params: {
             "hl": "pt-BR",
             "id": gameId,

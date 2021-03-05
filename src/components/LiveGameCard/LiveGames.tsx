@@ -9,12 +9,6 @@ import {Event} from "./liveGameTypes";
 export function LiveGames() {
     const [events, setEvents] = useState<Event[]>([])
 
-    /*useEffect(() => {
-        fetchProducts()
-            .then(response => setProducts(response.data))
-            .catch(error => toast("Ocorreu um erro ao carregar os produtos " + error.id))
-    }, [])*/
-
     useEffect(() => {
         getLiveGames().then(response => {
             setEvents(response.data.data.schedule.events.filter(filterByTeams))
@@ -23,6 +17,7 @@ export function LiveGames() {
         )
     }, [])
 
+    document.title = "LoL Live Esports";
 
     return (
         <div className="orders-container">

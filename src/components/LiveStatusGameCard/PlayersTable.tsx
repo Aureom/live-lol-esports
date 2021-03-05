@@ -1,6 +1,8 @@
 import './playerStatusStyle.css'
 
 import { GameMetadata } from "./types/windowLiveTypes";
+import {GameDetails} from "./types/detailsPersistentTypes";
+
 import {MiniHealthBar} from "./MiniHealthBar";
 import { ToastContainer } from 'react-toastify';
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
@@ -17,6 +19,7 @@ import {ReactComponent as InfernalDragonSVG} from '../../assets/images/dragon-in
 import {ReactComponent as CloudDragonSVG} from '../../assets/images/dragon-cloud.svg';
 import {ReactComponent as MountainDragonSVG} from '../../assets/images/dragon-mountain.svg';
 import {ReactComponent as ElderDragonSVG} from '../../assets/images/dragon-elder.svg';
+import {ItemsDisplay} from "./ItemsDisplay";
 
 
 
@@ -24,16 +27,32 @@ type Props = {
     lastFrameWindow: FrameWindow,
     lastFrameDetails: FrameDetails,
     gameMetadata: GameMetadata
+    gameDetails: GameDetails
 }
 
-export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata } : Props) {
+export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, gameDetails } : Props) {
 
+    const blueTeam = gameDetails.data.event.match.teams[0];
+    const redTeam = gameDetails.data.event.match.teams[1];
     const goldPercentage = getGoldPercentage(lastFrameWindow.blueTeam.totalGold, lastFrameWindow.redTeam.totalGold);
+
+    document.title = `${blueTeam.name} VS ${redTeam.name}`;
 
     return (
         <div className="status-live-game-card">
             <div className="status-live-game-card-content">
                 <div className="live-game-stats-header">
+                    <div className="live-game-stats-header-team-images">
+                        <div className="blue-team">
+                            <img src={blueTeam.image} alt={blueTeam.name}/>
+                        </div>
+                        <h3>{blueTeam.name}</h3>
+                        <h1>VS</h1>
+                        <h3> {redTeam.name}</h3>
+                        <div className="red-team">
+                            <img src={redTeam.image} alt={redTeam.name}/>
+                        </div>
+                    </div>
                     <div className="live-game-stats-header-status">
                         <div className="blue-team">
                             <div className="team-stats inhibitors">
@@ -107,9 +126,13 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                     <thead>
                     <tr>
                         <th className="table-top-row-champion" title="champion/team">
+                            <span>{gameDetails.data.event.match.teams[0].name.toUpperCase()}</span>
                         </th>
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
+                        </th>
+                        <th className="table-top-row" title="items">
+                            <span>ITEMS</span>
                         </th>
                         <th className="table-top-row" title="creep score">
                             <span>CS</span>
@@ -155,6 +178,9 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                                     <MiniHealthBar currentHealth={player.currentHealth} maxHealth={player.maxHealth}/>
                                 </td>
                                 <td>
+                                    <ItemsDisplay participantId={player.participantId - 1} lastFrame={lastFrameDetails}/>
+                                </td>
+                                <td>
                                     <div className=" player-stats">{player.creepScore}</div>
                                 </td>
                                 <td>
@@ -182,9 +208,14 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                 <table className="status-live-game-card-table">
                     <thead>
                     <tr>
-                        <th className="table-top-row-champion" title="champion/team"/>
+                        <th className="table-top-row-champion" title="champion/team">
+                            <span>{gameDetails.data.event.match.teams[1].name.toUpperCase()}</span>
+                        </th>
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
+                        </th>
+                        <th className="table-top-row" title="items">
+                            <span>ITEMS</span>
                         </th>
                         <th className="table-top-row" title="creep score">
                             <span>CS</span>
@@ -227,6 +258,9 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata }
                                 </th>
                                 <td>
                                     <MiniHealthBar currentHealth={player.currentHealth} maxHealth={player.maxHealth}/>
+                                </td>
+                                <td>
+                                    <ItemsDisplay participantId={player.participantId - 1} lastFrame={lastFrameDetails}/>
                                 </td>
                                 <td>
                                     <div className=" player-stats">{player.creepScore}</div>

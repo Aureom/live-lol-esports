@@ -2,7 +2,7 @@ import './playerStatusStyle.css'
 
 import {Redirect} from 'react-router-dom';
 import {
-    dateFixWindowTime,
+    dateFixWindowTime, getGameDetails,
     getISODateMultiplyOf10,
     getLiveDetailsGame,
     getLiveWindowGame
@@ -13,10 +13,12 @@ import Loading from '../../assets/images/loading.svg'
 import {PlayersTable} from "./PlayersTable";
 import BigNumber from "bignumber.js";
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
+import {GameDetails} from "./types/detailsPersistentTypes";
 
 export function LiveGame({ match }: any) {
     const [lastFrameWindow, setLastFrameWindow] = useState<FrameWindow>();
     const [lastFrameDetails, setLastFrameDetails] = useState<FrameDetails>();
+    const [gameData, setGameData] = useState<GameDetails>();
     const [metadata, setMetadata] = useState<GameMetadata>();
 
     const matchId = match.params.gameid;
@@ -24,21 +26,17 @@ export function LiveGame({ match }: any) {
     const gameId = BigNumber.sum(preGameId, 1).toString()
 
     useEffect(() => {
+        getLiveGameDetails();
         getLiveWindow();
         getLiveGameStatus();
 
         const windowIntervalID = setInterval(() => {
             getLiveWindow();
             getLiveGameStatus();
-        }, 2000);
-
-        /*const liveIntervalID = setInterval(() => {
-            getLiveGameStatus();
-        }, 12000);*/
+        }, 500);
 
         return () => {
             clearInterval(windowIntervalID);
-            //clearInterval(liveIntervalID);
         }
 
         function getLiveWindow(){
@@ -95,9 +93,17 @@ export function LiveGame({ match }: any) {
 
                 }
             )
-
         }
-    }, [gameId]);
+        
+        function getLiveGameDetails() {
+            getGameDetails(matchId).then(response => {
+                let gameData = response.data;
+                if(gameData === undefined) return;
+
+                setGameData(gameData);
+            })
+        }
+    }, [gameId, matchId]);
 
     if(gameId === "0") {
         return (
@@ -105,9 +111,9 @@ export function LiveGame({ match }: any) {
         )
     }
 
-    if(lastFrameWindow !== undefined && lastFrameDetails !== undefined && metadata !== undefined) {
+    if(lastFrameWindow !== undefined && lastFrameDetails !== undefined && metadata !== undefined && gameData !== undefined) {
         return (
-            <PlayersTable lastFrameWindow={lastFrameWindow} lastFrameDetails={lastFrameDetails} gameMetadata={metadata} />
+            <PlayersTable lastFrameWindow={lastFrameWindow} lastFrameDetails={lastFrameDetails} gameMetadata={metadata} gameDetails={gameData} />
         );
     }else {
         return(
