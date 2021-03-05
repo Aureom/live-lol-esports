@@ -285,8 +285,8 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                     })}
                     </tbody>
                 </table>
-
             </div>
+
             <ToastContainer/>
         </div>
     );

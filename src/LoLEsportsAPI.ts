@@ -76,7 +76,7 @@ export function getISODateMultiplyOf10() {
 export function dateFixWindowTime(stringDate: string, seconds: number) {
     let date = new Date(stringDate);
 
-    let remain = 10 % seconds;
+    let remain = 10 % (seconds + 5);
 
     date.setMilliseconds(0);
     date.setSeconds(date.getSeconds() - remain)

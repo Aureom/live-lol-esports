@@ -14,7 +14,7 @@
 .mini-health-bar > div > div {
     height: 28px;
     border-radius: 4px;
-    transition: width 2s;
+    transition: width 1s;
     background: var(--green);
 }
 
