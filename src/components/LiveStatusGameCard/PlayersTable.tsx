@@ -131,7 +131,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
                         </th>
-                        <th className="table-top-row" title="items">
+                        <th className="table-top-row-items" title="items">
                             <span>ITEMS</span>
                         </th>
                         <th className="table-top-row" title="creep score">
@@ -214,7 +214,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
                         </th>
-                        <th className="table-top-row" title="items">
+                        <th className="table-top-row-items" title="items">
                             <span>ITEMS</span>
                         </th>
                         <th className="table-top-row" title="creep score">

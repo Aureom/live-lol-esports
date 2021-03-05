@@ -34,7 +34,6 @@ span.mini-current-health {
 .live-game-stats-header-team-images {
     display: flex;
     align-items: center;
-
 }
 
 .live-game-stats-header-team-images > h1 {
@@ -212,8 +211,8 @@ Status dragons
     background: var(--gray-line);
 }
 
-.table-top-row {
-    height: 28px;
+.table-top-row-champion{
+    width: 12rem;
 }
 
 .table-top-row-vida{
@@ -221,8 +220,13 @@ Status dragons
     width: 15rem;
 }
 
-.table-top-row-champion{
+.table-top-row-items {
+    height: 28px;
     width: 12rem;
+}
+
+.table-top-row {
+    height: 28px;
 }
 
 .player-stats {
@@ -245,29 +249,27 @@ Status dragons
  */
 
 .player-stats-items {
+    height: 28px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.player-stats-items > div {
-    flex: 1;
-    height: 28px;
     background: var(--gray-line);
+    border-radius: 4px;
 }
 
-.player-stats-items > div:first-child {
-    border-radius: 4px 0 0 4px;
-}
+.player-stats-item {
+    flex: 1;
 
-.player-stats-items > div:last-child {
-    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .player-stats-item  > img {
-    width: 1.5rem;
+    height: 26px;
     border-radius: 4px;
-    margin: 2px 0;
 }
 
 /*

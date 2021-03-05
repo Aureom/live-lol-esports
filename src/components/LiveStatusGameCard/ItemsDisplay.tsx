@@ -21,8 +21,7 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
                     )
                 }else{
                     return (
-                        <div>
-                        </div>
+                        <div className="player-stats-item"/>
                     )
                 }
 
@@ -30,8 +29,4 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
             }
         </div>
     );
-}
-
-function percentage(partialValue: number, totalValue: number) {
-    return (100 * partialValue) / totalValue;
 }
