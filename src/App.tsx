@@ -9,7 +9,7 @@ import {Navbar} from "./components/Navbar/Navbar";
 
 function App() {
   return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
           <Navbar/>
           <div className="container">
               <Switch>
