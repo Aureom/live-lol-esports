@@ -4,7 +4,8 @@ import { GameMetadata } from "./types/windowLiveTypes";
 import {GameDetails} from "./types/detailsPersistentTypes";
 
 import {MiniHealthBar} from "./MiniHealthBar";
-import { ToastContainer } from 'react-toastify';
+import {useEffect, useState} from "react";
+import {ToastContainer, toast} from 'react-toastify';
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
 import {Frame as FrameWindow, Participant as ParticipantWindow} from "./types/windowLiveTypes";
 
@@ -21,16 +22,33 @@ import {ReactComponent as MountainDragonSVG} from '../../assets/images/dragon-mo
 import {ReactComponent as ElderDragonSVG} from '../../assets/images/dragon-elder.svg';
 import {ItemsDisplay} from "./ItemsDisplay";
 
-
-
 type Props = {
     lastFrameWindow: FrameWindow,
     lastFrameDetails: FrameDetails,
-    gameMetadata: GameMetadata
-    gameDetails: GameDetails
+    gameMetadata: GameMetadata,
+    gameDetails: GameDetails,
 }
 
 export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, gameDetails } : Props) {
+    const [gameState, setGameState] = useState<GameState>(GameState[lastFrameWindow.gameState as keyof typeof GameState]);
+
+    useEffect(() => {
+        let currentGameState: GameState = GameState[lastFrameWindow.gameState as keyof typeof GameState]
+
+        if(currentGameState !== gameState){
+            setGameState(currentGameState);
+
+            toast.info(`Status atual do jogo alterado: ${currentGameState.toUpperCase()}`, {
+                position: "top-right",
+                autoClose: 15000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+    });
+
 
     const blueTeam = gameDetails.data.event.match.teams[0];
     const redTeam = gameDetails.data.event.match.teams[1];
@@ -328,5 +346,10 @@ function getGoldPercentage(goldBlue: number, goldRed: number){
         goldBluePercentage: ((goldBlue/ 100) * total),
         goldRedPercentage: ((goldRed/ 100) * total),
     }
+}
 
+enum GameState {
+    in_game = "ao vivo",
+    paused = "pausado",
+    finished = "finalizado"
 }
