@@ -46,9 +46,9 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                         <div className="blue-team">
                             <img src={blueTeam.image} alt={blueTeam.name}/>
                         </div>
-                        <h3>{blueTeam.name}</h3>
+                        <h3>{blueTeam.code}</h3>
                         <h1>VS</h1>
-                        <h3> {redTeam.name}</h3>
+                        <h3>{redTeam.code}</h3>
                         <div className="red-team">
                             <img src={redTeam.image} alt={redTeam.name}/>
                         </div>

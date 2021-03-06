@@ -37,7 +37,13 @@ span.mini-current-health {
 }
 
 .live-game-stats-header-team-images > h1 {
-    margin: 0 1.5rem;
+    flex: 1;
+    text-align: center;
+}
+
+.live-game-stats-header-team-images > h3 {
+    flex: 1;
+    text-align: center;
 }
 
 .live-game-stats-header-team-images > .blue-team {
@@ -100,6 +106,18 @@ span.mini-current-health {
     display: flex;
     justify-content: space-between;
     margin-right: 15rem;
+}
+
+@media(max-width: 1080px) {
+    .live-game-stats-header-status > .blue-team {
+        margin-right: 10rem;
+    }
+}
+
+@media(max-width: 720px) {
+    .live-game-stats-header-status > .blue-team {
+        margin-right: 1rem;
+    }
 }
 
 .live-game-stats-header-status > .red-team {
