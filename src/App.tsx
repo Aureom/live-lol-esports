@@ -2,7 +2,7 @@ import './styles/global.css'
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import {LiveGame} from "./components/LiveStatusGameCard/LiveGame";
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {HashRouter, Switch, Route, Redirect} from "react-router-dom";
 import {Footer} from "./components/Footer/Footer";
 import {LiveGames} from "./components/LiveGameCard/LiveGames";
 import {Navbar} from "./components/Navbar/Navbar";
