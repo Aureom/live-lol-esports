@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/live-lol-esports/static/css/main.d3daaf53.chunk.css",
+    "main.js": "/live-lol-esports/static/js/main.94e3eba0.chunk.js",
+    "main.js.map": "/live-lol-esports/static/js/main.94e3eba0.chunk.js.map",
+    "runtime-main.js": "/live-lol-esports/static/js/runtime-main.85f629ea.js",
+    "runtime-main.js.map": "/live-lol-esports/static/js/runtime-main.85f629ea.js.map",
+    "static/css/2.82a37e40.chunk.css": "/live-lol-esports/static/css/2.82a37e40.chunk.css",
+    "static/js/2.3f5c694b.chunk.js": "/live-lol-esports/static/js/2.3f5c694b.chunk.js",
+    "static/js/2.3f5c694b.chunk.js.map": "/live-lol-esports/static/js/2.3f5c694b.chunk.js.map",
+    "index.html": "/live-lol-esports/index.html",
+    "static/css/2.82a37e40.chunk.css.map": "/live-lol-esports/static/css/2.82a37e40.chunk.css.map",
+    "static/css/main.d3daaf53.chunk.css.map": "/live-lol-esports/static/css/main.d3daaf53.chunk.css.map",
+    "static/js/2.3f5c694b.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/2.3f5c694b.chunk.js.LICENSE.txt",
+    "static/media/baron.99733951.svg": "/live-lol-esports/static/media/baron.99733951.svg",
+    "static/media/dragon-cloud.1a55fc30.svg": "/live-lol-esports/static/media/dragon-cloud.1a55fc30.svg",
+    "static/media/dragon-elder.2dd99da4.svg": "/live-lol-esports/static/media/dragon-elder.2dd99da4.svg",
+    "static/media/dragon-infernal.43bfa7f3.svg": "/live-lol-esports/static/media/dragon-infernal.43bfa7f3.svg",
+    "static/media/dragon-mountain.69282d8c.svg": "/live-lol-esports/static/media/dragon-mountain.69282d8c.svg",
+    "static/media/dragon-ocean.ad7cfa52.svg": "/live-lol-esports/static/media/dragon-ocean.ad7cfa52.svg",
+    "static/media/galaxy.8ee05acd.svg": "/live-lol-esports/static/media/galaxy.8ee05acd.svg",
+    "static/media/github.04be58c1.svg": "/live-lol-esports/static/media/github.04be58c1.svg",
+    "static/media/gold.ec65d79c.svg": "/live-lol-esports/static/media/gold.ec65d79c.svg",
+    "static/media/inhibitor.5e389683.svg": "/live-lol-esports/static/media/inhibitor.5e389683.svg",
+    "static/media/kill.b4d6f4d2.svg": "/live-lol-esports/static/media/kill.b4d6f4d2.svg",
+    "static/media/league-of-legends.3f6f7c30.svg": "/live-lol-esports/static/media/league-of-legends.3f6f7c30.svg",
+    "static/media/loading.84c98962.svg": "/live-lol-esports/static/media/loading.84c98962.svg",
+    "static/media/tower.3a7fbe61.svg": "/live-lol-esports/static/media/tower.3a7fbe61.svg",
+    "static/media/twitter.5ae9f4cf.svg": "/live-lol-esports/static/media/twitter.5ae9f4cf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85f629ea.js",
+    "static/css/2.82a37e40.chunk.css",
+    "static/js/2.3f5c694b.chunk.js",
+    "static/css/main.d3daaf53.chunk.css",
+    "static/js/main.94e3eba0.chunk.js"
+  ]
+}
