@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {Event} from "./liveGameTypes";
+import {Event} from "./types/liveGameTypes";
 
 type Props = {
     game: Event;

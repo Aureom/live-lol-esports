@@ -1,5 +1,5 @@
 import {GameCard} from "./GameCard";
-import {Event} from "./liveGameTypes";
+import {Event} from "./types/liveGameTypes";
 
 import Galaxy from "../../assets/images/galaxy.svg"
 

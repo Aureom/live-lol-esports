@@ -1,4 +1,4 @@
-import './playerStatusStyle.css'
+import './styles/playerStatusStyle.css'
 
 import {Redirect} from 'react-router-dom';
 import {

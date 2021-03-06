@@ -60,23 +60,10 @@ export function getISODateMultiplyOf10() {
     return date.toISOString();
 }
 
-/*export function convertISODateToMultiplyOf10(stringDate: string){
-    let date = new Date(stringDate);
-
-    date.setMilliseconds(0);
-    date.setSeconds(date.getSeconds() - 15)
-
-    if(date.getSeconds() % 10 !== 0) {
-        date.setSeconds(date.getSeconds() - date.getSeconds() % 10);
-    }
-
-    return date.toISOString();
-}*/
-
 export function dateFixWindowTime(stringDate: string, seconds: number) {
     let date = new Date(stringDate);
 
-    let remain = 10 % (seconds + 5);
+    let remain = 10 % seconds;
 
     date.setMilliseconds(0);
     date.setSeconds(date.getSeconds() - remain)

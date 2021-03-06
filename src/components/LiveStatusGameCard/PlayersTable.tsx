@@ -1,4 +1,4 @@
-import './playerStatusStyle.css'
+import './styles/playerStatusStyle.css'
 
 import { GameMetadata } from "./types/windowLiveTypes";
 import {GameDetails} from "./types/detailsPersistentTypes";

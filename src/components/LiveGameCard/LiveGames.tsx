@@ -1,10 +1,10 @@
-import './livegameStyle.css'
+import './styles/livegameStyle.css'
 
 import {getLiveGames} from "../../LoLEsportsAPI";
 import {GameCardList} from "./GameCardList";
 import {useEffect, useState} from "react";
 
-import {Event} from "./liveGameTypes";
+import {Event} from "./types/liveGameTypes";
 
 export function LiveGames() {
     const [events, setEvents] = useState<Event[]>([])

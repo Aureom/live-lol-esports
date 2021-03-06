@@ -1,5 +1,5 @@
 import React from "react";
-import './footerStyle.css'
+import './styles/footerStyle.css'
 import GithubLogo from '../../assets/images/github.svg';
 import TwitterLogo from '../../assets/images/twitter.svg';
 

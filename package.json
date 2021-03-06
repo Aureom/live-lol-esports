@@ -1,4 +1,5 @@
 {
+  "homepage": "http://{username}.github.io/live-lol-esports",
   "name": "lol-live-eports-api",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +16,7 @@
     "@types/socket.io-client": "^1.4.35",
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.1",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -26,6 +28,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

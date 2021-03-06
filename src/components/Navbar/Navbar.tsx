@@ -1,5 +1,5 @@
 import React from "react";
-import './navbarStyle.css'
+import './styles/navbarStyle.css'
 import LoLLogo from '../../assets/images/league-of-legends.svg';
 
 import {Link} from "react-router-dom";
