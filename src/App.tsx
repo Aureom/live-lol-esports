@@ -9,7 +9,7 @@ import {Navbar} from "./components/Navbar/Navbar";
 
 function App() {
   return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <HashRouter basename="/">
           <Navbar/>
           <div className="container">
               <Switch>
@@ -19,7 +19,7 @@ function App() {
               </Switch>
           </div>
           <Footer/>
-      </Router>
+      </HashRouter>
   );
 }
 
