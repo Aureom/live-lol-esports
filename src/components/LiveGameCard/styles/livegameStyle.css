@@ -2,7 +2,7 @@
     width: 25rem;
     padding: 0.5rem;
     text-align: center;
-    background: var(--white);
+    background: var(--card-color);
     box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     transition: all .2s ease-in-out;
@@ -10,6 +10,7 @@
 
 .live-game-card > h3 {
     padding: 0.2rem 0;
+    color: var(--text);
 }
 
 .live-game-card-content{
@@ -21,6 +22,7 @@
     display: flex;
     align-items: center;
     padding: 0 1rem;
+    color: var(--text);
 }
 
 .live-game-card:hover {
@@ -36,11 +38,12 @@
     padding: 0.30rem;
     box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.5);
 
-    background: #d8dfe0;
+    background: var(--background);
 }
 
 .live-game-card-title {
     font-weight: 500;
+    color: var(--text);
 }
 
 .empty-games-list-container{

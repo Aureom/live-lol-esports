@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-:root {
-    --white: #FFF;
+/*:root {
+    --card-color: #FFF;
     --background: #F2F3F5;
     --gray-line: #DCDDE0;
     --text: #666666;
@@ -15,9 +15,9 @@
     --green: #4CD62B;
     --green-positive: #61b875;
     --blue: #5965E0;
-    --blue-dar: #4953B8;
+    --blue-dark: #4953B8;
     --blue-twitter: #2AA9E0;
-}
+}*/
 
 body {
     background: var(--background);
@@ -38,6 +38,10 @@ body {
 
 body, input, textarea, button {
     font: 400 1rem 'Inter', sans-serif;
+}
+
+span, h1, h2, h3, h4 {
+    color: var(--text);
 }
 
 button {

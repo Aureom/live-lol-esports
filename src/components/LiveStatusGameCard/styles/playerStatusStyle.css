@@ -41,6 +41,11 @@ span.mini-current-health {
     text-align: center;
 }
 
+.live-game-stats-header-team-images > h1 > h3 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
 .live-game-stats-header-team-images > h3 {
     flex: 1;
     text-align: center;
@@ -187,7 +192,7 @@ Status dragons
 */
 
 .status-live-game-card {
-    background: var(--white);
+    background: var(--card-color);
     box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
 }
@@ -227,6 +232,10 @@ Status dragons
     width: 32px;
     border-radius: 50%;
     background: var(--gray-line);
+}
+
+.player-stats{
+    color: var(--text)
 }
 
 .table-top-row-champion{

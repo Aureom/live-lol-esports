@@ -4,7 +4,7 @@ import { GameMetadata } from "./types/windowLiveTypes";
 import {GameDetails} from "./types/detailsPersistentTypes";
 
 import {MiniHealthBar} from "./MiniHealthBar";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {ToastContainer, toast} from 'react-toastify';
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
 import {Frame as FrameWindow, Participant as ParticipantWindow} from "./types/windowLiveTypes";
@@ -49,7 +49,6 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
         }
     });
 
-
     const blueTeam = gameDetails.data.event.match.teams[0];
     const redTeam = gameDetails.data.event.match.teams[1];
     const goldPercentage = getGoldPercentage(lastFrameWindow.blueTeam.totalGold, lastFrameWindow.redTeam.totalGold);
@@ -65,7 +64,10 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                             <img src={blueTeam.image} alt={blueTeam.name}/>
                         </div>
                         <h3>{blueTeam.code}</h3>
-                        <h1>VS</h1>
+                        <h1>
+                            VS
+                            <h3>{gameState.toUpperCase()}</h3>
+                        </h1>
                         <h3>{redTeam.code}</h3>
                         <div className="red-team">
                             <img src={redTeam.image} alt={redTeam.name}/>
