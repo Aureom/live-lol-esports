@@ -54,8 +54,15 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
         }
     });
 
-    const blueTeam = gameDetails.data.event.match.teams[0];
-    const redTeam = gameDetails.data.event.match.teams[1];
+    let blueTeam = gameDetails.data.event.match.teams[0];
+    let redTeam = gameDetails.data.event.match.teams[1];
+
+    const auxBlueTeam = blueTeam
+    if(blueTeam.id != gameMetadata.blueTeamMetadata.esportsTeamId){
+        blueTeam = redTeam;
+        redTeam = auxBlueTeam;
+    }
+
     const goldPercentage = getGoldPercentage(lastFrameWindow.blueTeam.totalGold, lastFrameWindow.redTeam.totalGold);
 
     document.title = `${blueTeam.name} VS ${redTeam.name}`;
@@ -151,7 +158,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                     <thead>
                     <tr>
                         <th className="table-top-row-champion" title="champion/team">
-                            <span>{gameDetails.data.event.match.teams[0].name.toUpperCase()}</span>
+                            <span>{blueTeam.name.toUpperCase()}</span>
                         </th>
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
@@ -234,7 +241,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                     <thead>
                     <tr>
                         <th className="table-top-row-champion" title="champion/team">
-                            <span>{gameDetails.data.event.match.teams[1].name.toUpperCase()}</span>
+                            <span>{redTeam.name.toUpperCase()}</span>
                         </th>
                         <th className="table-top-row-vida" title="life">
                             <span>VIDA</span>
