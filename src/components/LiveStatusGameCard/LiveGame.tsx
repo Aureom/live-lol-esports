@@ -13,7 +13,7 @@ import Loading from '../../assets/images/loading.svg'
 import {PlayersTable} from "./PlayersTable";
 import BigNumber from "bignumber.js";
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
-import {GameDetails} from "./types/detailsPersistentTypes";
+import {GameDetails, Game} from "./types/detailsPersistentTypes";
 
 export function LiveGame({ match }: any) {
     const [lastFrameWindow, setLastFrameWindow] = useState<FrameWindow>();
@@ -23,12 +23,12 @@ export function LiveGame({ match }: any) {
 
     const matchId = match.params.gameid;
     const preGameId = new BigNumber(matchId);
-    const gameId = BigNumber.sum(preGameId, 1).toString()
+    let gameId = BigNumber.sum(preGameId, 1).toString();
 
     useEffect(() => {
         getLiveGameDetails();
-        getLiveWindow();
-        getLiveGameStatus();
+        /*getLiveWindow();
+        getLiveGameStatus();*/
 
         const windowIntervalID = setInterval(() => {
             getLiveWindow();
@@ -97,19 +97,25 @@ export function LiveGame({ match }: any) {
         
         function getLiveGameDetails() {
             getGameDetails(matchId).then(response => {
-                let gameData = response.data;
+                let gameData: GameDetails = response.data;
                 if(gameData === undefined) return;
 
+                for (const game of gameData.data.event.match.games) {
+                    if(game.state == "inProgress"){
+                        gameId = BigNumber.sum(preGameId, game.number).toString()
+                        console.log(gameId)
+                    }
+                }
                 setGameData(gameData);
             })
         }
-    }, [gameId, matchId]);
+    }, [matchId]);
 
-    if(gameId === "0") {
+    /*if(gameId === "0") {
         return (
             <Redirect to="/"/>
         )
-    }
+    }*/
 
     if(lastFrameWindow !== undefined && lastFrameDetails !== undefined && metadata !== undefined && gameData !== undefined) {
         return (
