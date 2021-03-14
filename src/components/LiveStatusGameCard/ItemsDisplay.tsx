@@ -23,14 +23,16 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
         retirando o arauto após 240s
     */
 
-    if (!(items.includes(3340) || items.includes(3363) || items.includes(3364))) {
+    /*if (!(items.includes(3340) || items.includes(3363) || items.includes(3364))) {
         items.push(3513); // Supondo que o jogador que não possui ward está com arauto
-    }
+    }*/
 
     let trinket = -1;
     const itemsID = Array.from(new Set(items)).sort(sortItems);
 
-    if(itemsID[0] !== undefined) trinket = itemsID.shift() as number;
+    if(itemsID[0] !== undefined && (itemsID[0] == 3340 || itemsID[0] == 3363 || itemsID[0] == 3364)) {
+        trinket = itemsID.shift() as number;
+    }
 
     return (
         <div className="player-stats-items">
@@ -50,9 +52,20 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
 
             })
             }
-            <div className="player-stats-item">
-                <img src={`${ITEMS_URL}${trinket}.png`}/>
-            </div>
+
+
+            {trinket !== -1 ?
+                (
+                    <div className="player-stats-item">
+                        <img src={`${ITEMS_URL}${trinket}.png`}/>
+                    </div>
+                )
+                :
+                (
+                    <div className="player-stats-item"/>
+                )
+            }
+
         </div>
     );
 }
