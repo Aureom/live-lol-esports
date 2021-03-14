@@ -61,6 +61,16 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
     if(blueTeam.id != gameMetadata.blueTeamMetadata.esportsTeamId){
         blueTeam = redTeam;
         redTeam = auxBlueTeam;
+    }else{
+        /*
+            As vezes os times continuam errados mesmo apos verificar o ultimo frame,
+            em ligas como TCL, por isso fazemos essa verificação pelo nome
+        */
+        const summonerName = gameMetadata.blueTeamMetadata.participantMetadata[0].summonerName.split(" ");
+        if(summonerName[0] !== blueTeam.name){
+            blueTeam = redTeam;
+            redTeam = auxBlueTeam;
+        }
     }
 
     const goldPercentage = getGoldPercentage(lastFrameWindow.blueTeam.totalGold, lastFrameWindow.redTeam.totalGold);
