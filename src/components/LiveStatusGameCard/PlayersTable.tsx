@@ -67,7 +67,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
             em ligas como TCL, por isso fazemos essa verificação pelo nome
         */
         const summonerName = gameMetadata.blueTeamMetadata.participantMetadata[0].summonerName.split(" ");
-        if(summonerName[0] !== blueTeam.name){
+        if(summonerName[0] !== blueTeam.code){
             blueTeam = redTeam;
             redTeam = auxBlueTeam;
         }
