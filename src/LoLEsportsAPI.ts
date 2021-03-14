@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const ITEMS_URL = "https://ddragon.leagueoflegends.com/cdn/11.5.1/img/item/";
+//export const ITEMS_URL = "https://ddragon.leagueoflegends.com/cdn/11.5.1/img/item/";
+export const ITEMS_URL = "https://ddragon.bangingheads.net/cdn/11.5.1/img/item/"
 
 const API_URL_PERSISTED = "https://esports-api.lolesports.com/persisted/gw"
 const API_URL_LIVE = "https://feed.lolesports.com/livestats/v1"
