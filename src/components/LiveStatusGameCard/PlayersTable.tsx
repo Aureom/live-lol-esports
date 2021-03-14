@@ -29,6 +29,11 @@ type Props = {
     gameDetails: GameDetails,
 }
 
+type HeraldLogic = {
+    partipantId: number;
+    lastHerald: Date;
+}
+
 export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, gameDetails } : Props) {
     const [gameState, setGameState] = useState<GameState>(GameState[lastFrameWindow.gameState as keyof typeof GameState]);
 
