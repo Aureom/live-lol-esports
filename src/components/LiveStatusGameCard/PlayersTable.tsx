@@ -67,7 +67,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
             em ligas como TCL, por isso fazemos essa verificação pelo nome
         */
         const summonerName = gameMetadata.blueTeamMetadata.participantMetadata[0].summonerName.split(" ");
-        if(summonerName[0] !== blueTeam.code){
+        if(summonerName[0].startsWith(blueTeam.code)){ // Temos que verificar apenas os primeiros caracteres pois os times academy usam o A, a mais na tag mas não nos nomes
             blueTeam = redTeam;
             redTeam = auxBlueTeam;
         }
