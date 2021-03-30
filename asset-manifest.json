@@ -1,18 +1,26 @@
 {
   "files": {
-    "main.css": "/live-lol-esports/static/css/main.4a7215cd.chunk.css",
-    "main.js": "/live-lol-esports/static/js/main.4860997c.chunk.js",
-    "runtime-main.js": "/live-lol-esports/static/js/runtime-main.85f629ea.js",
+    "main.css": "/live-lol-esports/static/css/main.1d5dd29f.chunk.css",
+    "main.js": "/live-lol-esports/static/js/main.d9cdc069.chunk.js",
+    "runtime-main.js": "/live-lol-esports/static/js/runtime-main.76afcda8.js",
     "static/css/2.ff80f086.chunk.css": "/live-lol-esports/static/css/2.ff80f086.chunk.css",
-    "static/js/2.1d19284e.chunk.js": "/live-lol-esports/static/js/2.1d19284e.chunk.js",
+    "static/js/2.009af09f.chunk.js": "/live-lol-esports/static/js/2.009af09f.chunk.js",
+    "static/js/3.65ba8324.chunk.js": "/live-lol-esports/static/js/3.65ba8324.chunk.js",
     "index.html": "/live-lol-esports/index.html",
-    "static/js/2.1d19284e.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/2.1d19284e.chunk.js.LICENSE.txt",
+    "static/js/2.009af09f.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/2.009af09f.chunk.js.LICENSE.txt",
+    "static/js/3.65ba8324.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/3.65ba8324.chunk.js.LICENSE.txt",
+    "static/media/azul_baron.ogg": "/live-lol-esports/static/media/azul_baron.68b74d70.ogg",
+    "static/media/azul_dragao.ogg": "/live-lol-esports/static/media/azul_dragao.01162a2e.ogg",
+    "static/media/azul_inib_destruido.ogg": "/live-lol-esports/static/media/azul_inib_destruido.e4b2c139.ogg",
+    "static/media/azul_torre_destruida.ogg": "/live-lol-esports/static/media/azul_torre_destruida.09d953cd.ogg",
     "static/media/baron.99733951.svg": "/live-lol-esports/static/media/baron.99733951.svg",
+    "static/media/campeao_eliminado.ogg": "/live-lol-esports/static/media/campeao_eliminado.8adf323f.ogg",
     "static/media/dragon-cloud.1a55fc30.svg": "/live-lol-esports/static/media/dragon-cloud.1a55fc30.svg",
     "static/media/dragon-elder.2dd99da4.svg": "/live-lol-esports/static/media/dragon-elder.2dd99da4.svg",
     "static/media/dragon-infernal.43bfa7f3.svg": "/live-lol-esports/static/media/dragon-infernal.43bfa7f3.svg",
     "static/media/dragon-mountain.69282d8c.svg": "/live-lol-esports/static/media/dragon-mountain.69282d8c.svg",
     "static/media/dragon-ocean.ad7cfa52.svg": "/live-lol-esports/static/media/dragon-ocean.ad7cfa52.svg",
+    "static/media/firstblood.ogg": "/live-lol-esports/static/media/firstblood.5c1ea1c0.ogg",
     "static/media/galaxy.8ee05acd.svg": "/live-lol-esports/static/media/galaxy.8ee05acd.svg",
     "static/media/github.04be58c1.svg": "/live-lol-esports/static/media/github.04be58c1.svg",
     "static/media/gold.ec65d79c.svg": "/live-lol-esports/static/media/gold.ec65d79c.svg",
@@ -21,13 +29,17 @@
     "static/media/league-of-legends.3f6f7c30.svg": "/live-lol-esports/static/media/league-of-legends.3f6f7c30.svg",
     "static/media/loading.84c98962.svg": "/live-lol-esports/static/media/loading.84c98962.svg",
     "static/media/tower.3a7fbe61.svg": "/live-lol-esports/static/media/tower.3a7fbe61.svg",
-    "static/media/twitter.5ae9f4cf.svg": "/live-lol-esports/static/media/twitter.5ae9f4cf.svg"
+    "static/media/twitter.5ae9f4cf.svg": "/live-lol-esports/static/media/twitter.5ae9f4cf.svg",
+    "static/media/vermelha_baron.ogg": "/live-lol-esports/static/media/vermelha_baron.44f2a565.ogg",
+    "static/media/vermelha_dragao.ogg": "/live-lol-esports/static/media/vermelha_dragao.1a370a2e.ogg",
+    "static/media/vermelha_inib_destruido.ogg": "/live-lol-esports/static/media/vermelha_inib_destruido.2f3927db.ogg",
+    "static/media/vermelha_torre_destruida.ogg": "/live-lol-esports/static/media/vermelha_torre_destruida.7728a679.ogg"
   },
   "entrypoints": [
-    "static/js/runtime-main.85f629ea.js",
+    "static/js/runtime-main.76afcda8.js",
     "static/css/2.ff80f086.chunk.css",
-    "static/js/2.1d19284e.chunk.js",
-    "static/css/main.4a7215cd.chunk.css",
-    "static/js/main.4860997c.chunk.js"
+    "static/js/2.009af09f.chunk.js",
+    "static/css/main.1d5dd29f.chunk.css",
+    "static/js/main.d9cdc069.chunk.js"
   ]
 }
