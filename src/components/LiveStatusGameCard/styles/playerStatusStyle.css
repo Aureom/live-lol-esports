@@ -324,3 +324,21 @@ Status dragons
 .loading-game-image{
     width: 20%;
 }
+
+/*
+    Toast LiveAPIWatcher
+*/
+
+.toast-watcher {
+    display: flex;
+    align-items: center;
+}
+
+.toast-image {
+    display: flex;
+
+    width: 2rem;
+    height: 2rem;
+
+    margin-right: 1rem;
+}

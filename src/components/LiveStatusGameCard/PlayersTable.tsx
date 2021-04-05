@@ -5,7 +5,7 @@ import {GameDetails} from "./types/detailsPersistentTypes";
 
 import {MiniHealthBar} from "./MiniHealthBar";
 import React, {useEffect, useState} from "react";
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import {Frame as FrameDetails} from "./types/detailsLiveTypes";
 import {Frame as FrameWindow, Participant as ParticipantWindow} from "./types/windowLiveTypes";
 
@@ -22,16 +22,14 @@ import {ReactComponent as MountainDragonSVG} from '../../assets/images/dragon-mo
 import {ReactComponent as ElderDragonSVG} from '../../assets/images/dragon-elder.svg';
 import {ItemsDisplay} from "./ItemsDisplay";
 
+import {Helmet} from "react-helmet";
+import {LiveAPIWatcher} from "./LiveAPIWatcher";
+
 type Props = {
     lastFrameWindow: FrameWindow,
     lastFrameDetails: FrameDetails,
     gameMetadata: GameMetadata,
     gameDetails: GameDetails,
-}
-
-type HeraldLogic = {
-    partipantId: number;
-    lastHerald: Date;
 }
 
 export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, gameDetails } : Props) {
@@ -52,25 +50,22 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                 draggable: true,
             });
         }
-    });
+    }, [lastFrameWindow.gameState, gameState]);
 
     let blueTeam = gameDetails.data.event.match.teams[0];
     let redTeam = gameDetails.data.event.match.teams[1];
 
     const auxBlueTeam = blueTeam
-    if(blueTeam.id != gameMetadata.blueTeamMetadata.esportsTeamId){
+
+    /*
+        As vezes os times continuam errados mesmo apos verificar o ultimo frame,
+        em ligas como TCL, por isso fazemos essa verificação pelo nome
+    */
+    const summonerName = gameMetadata.blueTeamMetadata.participantMetadata[0].summonerName.split(" ");
+
+    if(redTeam.code.startsWith(summonerName[0])){ // Temos que verificar apenas os primeiros caracteres pois os times academy usam o A, a mais na tag mas não nos nomes
         blueTeam = redTeam;
         redTeam = auxBlueTeam;
-    }else{
-        /*
-            As vezes os times continuam errados mesmo apos verificar o ultimo frame,
-            em ligas como TCL, por isso fazemos essa verificação pelo nome
-        */
-        const summonerName = gameMetadata.blueTeamMetadata.participantMetadata[0].summonerName.split(" ");
-        if(summonerName[0].startsWith(blueTeam.code)){ // Temos que verificar apenas os primeiros caracteres pois os times academy usam o A, a mais na tag mas não nos nomes
-            blueTeam = redTeam;
-            redTeam = auxBlueTeam;
-        }
     }
 
     const goldPercentage = getGoldPercentage(lastFrameWindow.blueTeam.totalGold, lastFrameWindow.redTeam.totalGold);
@@ -79,6 +74,11 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
 
     return (
         <div className="status-live-game-card">
+
+            <Helmet>
+                <script src="../../utils/LoLAPIWatcher.js"/>
+            </Helmet>
+
             <div className="status-live-game-card-content">
                 <div className="live-game-stats-header">
                     <div className="live-game-stats-header-team-images">
@@ -329,7 +329,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                 </table>
             </div>
 
-            <ToastContainer/>
+            <LiveAPIWatcher gameMetadata={gameMetadata} lastFrameWindow={lastFrameWindow} blueTeam={blueTeam} redTeam={redTeam}/>
         </div>
     );
 }

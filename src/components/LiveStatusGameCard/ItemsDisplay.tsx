@@ -1,6 +1,6 @@
 import {Frame} from "./types/detailsLiveTypes";
 
-import {ITEMS_URL} from "../../LoLEsportsAPI"
+import {ITEMS_URL} from "../../utils/LoLEsportsAPI"
 
 type Props = {
     participantId: number,
@@ -17,6 +17,7 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
         menos que ele retorne na base e compre outra), assim podemos
         supor que o jogador pegou o arauto
 
+    Update:
         Infelizmente por todo o projeto ser client side o jogador
         sempre estará com arauto, futuramente se fomos fazer algo
         a logica do arauto poderá ser implementada server-side,
@@ -30,7 +31,7 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
     let trinket = -1;
     const itemsID = Array.from(new Set(items)).sort(sortItems);
 
-    if(itemsID[0] !== undefined && (itemsID[0] == 3340 || itemsID[0] == 3363 || itemsID[0] == 3364)) {
+    if(itemsID[0] !== undefined && (itemsID[0] === 3340 || itemsID[0] === 3363 || itemsID[0] === 3364)) {
         trinket = itemsID.shift() as number;
     }
 
@@ -78,8 +79,8 @@ export function ItemsDisplay({ participantId, lastFrame }: Props) {
  */
 
 const sortItems = (a: number, b: number) => { // (3364, 3363, 3340) id das wards | 3513 id do arauto
-    if(a == 3364 || a == 3363 || a == 3340 || a == 3513) return -1;
-    if(b == 3364 || b == 3363 || b == 3340 || a == 3513) return 1;
+    if(a === 3364 || a === 3363 || a === 3340 || a === 3513) return -1;
+    if(b === 3364 || b === 3363 || b === 3340 || a === 3513) return 1;
 
     //return (a > b ? 1 : -1);
     return b - a;
