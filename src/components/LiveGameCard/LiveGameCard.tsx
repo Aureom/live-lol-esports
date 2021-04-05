@@ -5,7 +5,7 @@ type Props = {
     game: Event;
 }
 
-export function GameCard({ game }: Props) {
+export function LiveGameCard({ game }: Props) {
     return (
         <Link to={`live/${game.id}`}>
             <div className="live-game-card">

@@ -1,19 +1,29 @@
 import './styles/livegameStyle.css'
 
-import {getLiveGames} from "../../LoLEsportsAPI";
+import {getLiveGames, getSchedule} from "../../utils/LoLEsportsAPI";
 import {GameCardList} from "./GameCardList";
 import {useEffect, useState} from "react";
 
-import {Event} from "./types/liveGameTypes";
+import {Event as LiveEvents} from "./types/liveGameTypes";
+import {Event as TodayEvent} from "./types/scheduleType";
 
 export function LiveGames() {
-    const [events, setEvents] = useState<Event[]>([])
+    const [liveEvents, setLiveEvents] = useState<LiveEvents[]>([])
+    const [todayEvents, setTodayEvents] = useState<TodayEvent[]>([])
+
 
     useEffect(() => {
         getLiveGames().then(response => {
-            setEvents(response.data.data.schedule.events.filter(filterByTeams))
+            setLiveEvents(response.data.data.schedule.events.filter(filterByTeams))
         }).catch(error =>
-            console.log(error)
+            console.error(error)
+        )
+
+        getSchedule().then(response => {
+            setTodayEvents(response.data.data.schedule.events.filter(filterByTodayDate));
+
+        }).catch(error =>
+            console.error(error)
         )
     }, [])
 
@@ -22,12 +32,29 @@ export function LiveGames() {
     return (
         <div className="orders-container">
             <GameCardList
-                games={events}
+                liveGames={liveEvents} todayGames={todayEvents}
             />
         </div>
     );
 }
 
-function filterByTeams(event: Event) {
+function filterByTeams(event: LiveEvents) {
     return event.match !== undefined;
+}
+
+let date = new Date(Date.now());
+function filterByTodayDate(event: TodayEvent) {
+    let eventDate = event.startTime.toString().split("T")[0].split("-");
+
+    if(parseInt(eventDate[0]) === date.getFullYear() &&
+        parseInt(eventDate[1]) === (date.getUTCMonth() + 1) &&
+        parseInt(eventDate[2]) === date.getDate()){
+
+        if(event.match === undefined) return false
+        if(event.match.id === undefined) return false
+
+        return true;
+    }else{
+        return false;
+    }
 }
