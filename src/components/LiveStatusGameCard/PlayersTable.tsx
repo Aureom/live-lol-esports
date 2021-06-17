@@ -24,6 +24,7 @@ import {ItemsDisplay} from "./ItemsDisplay";
 
 import {Helmet} from "react-helmet";
 import {LiveAPIWatcher} from "./LiveAPIWatcher";
+import { CHAMPIONS_URL } from '../../utils/LoLEsportsAPI';
 
 type Props = {
     lastFrameWindow: FrameWindow,
@@ -205,7 +206,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                                 <th>
                                     <div className="player-champion-info">
                                         <img
-                                            src={`http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${gameMetadata.blueTeamMetadata.participantMetadata[player.participantId - 1].championId}.png`}
+                                            src={`${CHAMPIONS_URL}${gameMetadata.blueTeamMetadata.participantMetadata[player.participantId - 1].championId}.png`}
                                             className="player-champion"
                                             alt="imagem do campeao"/>
                                         <span className=" player-champion-info-level">{player.level}</span>
@@ -288,7 +289,7 @@ export function PlayersTable({ lastFrameWindow, lastFrameDetails, gameMetadata, 
                                 <th>
                                     <div className="player-champion-info">
                                         <img
-                                            src={`http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${gameMetadata.redTeamMetadata.participantMetadata[player.participantId - 6].championId}.png`}
+                                            src={`${CHAMPIONS_URL}${gameMetadata.redTeamMetadata.participantMetadata[player.participantId - 6].championId}.png`}
                                             className="player-champion"
                                             alt="imagem do campeao"/>
                                         <span className=" player-champion-info-level">{player.level}</span>
