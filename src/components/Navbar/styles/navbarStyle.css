@@ -41,24 +41,42 @@
 }
 
 /*
-theme toggle
+theme and sound toggle
  */
 
-.toggle-container{
+.settings-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    width: 100%;
 }
 
-.theme-toggle {
-    margin-left: 65%;
+.sound-toggle {
+    margin-left: 100%;
     cursor: pointer;
     height: 1.5rem;
     width: 2.5rem;
     border-radius: 50px;
     border: 3px solid var(--gray-line);
     background-color: var(--theme-switch-bg);
+}
+
+.theme-toggle {
+    margin-left: 35%;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 2.5rem;
+    border-radius: 50px;
+    border: 3px solid var(--gray-line);
+    background-color: var(--theme-switch-bg);
+}
+
+@media(max-width: 980px) {
+    .theme-toggle {
+        margin-left: 0;
+    }
+    .sound-toggle {
+        margin-left: 0;
+    }
 }
 
 .notch {
@@ -74,5 +92,9 @@ theme toggle
 }
 
 .dark > .notch {
+    transform: translate(50%, -20%);
+}
+
+.muted > .notch {
     transform: translate(50%, -20%);
 }

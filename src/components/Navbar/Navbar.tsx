@@ -4,6 +4,7 @@ import {ReactComponent as LoLLogoSVG} from '../../assets/images/league-of-legend
 
 import {Link} from "react-router-dom";
 import { ThemeToggler } from "./ThemeToggler";
+import {SoundToggler} from "./SoundToggler";
 
 export function Navbar() {
     return (
@@ -14,7 +15,10 @@ export function Navbar() {
                     <h2 className="navbar-icon">Live Esports</h2>
                 </Link>
             </div>
-            <ThemeToggler/>
+            <div className="settings-container">
+                <SoundToggler/>
+                <ThemeToggler/>
+            </div>
         </nav>
     );
 }

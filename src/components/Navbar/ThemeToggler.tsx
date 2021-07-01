@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './styles/navbarStyle.css'
 
 import { useTheme } from "../../theme/ThemeContext";
 
 export function ThemeToggler() {
-    const { setCurrentTheme, themeType } = useTheme();
-    const [toggled, setToggled] = React.useState(false);
+    const { setCurrentTheme} = useTheme();
+    const [toggled, setToggled] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const themeData = localStorage.getItem("theme");
         if(themeData) {
             if (themeData === "light") {

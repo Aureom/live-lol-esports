@@ -9,7 +9,6 @@ import {Frame as FrameWindow} from "./types/windowLiveTypes";
 import useSound from "use-sound";
 import {Team} from "./types/detailsPersistentTypes";
 
-
 const firstblood = require("../../assets/audios/firstblood.ogg");
 const kill = require("../../assets/audios/campeao_eliminado.ogg");
 const tower_blue = require("../../assets/audios/azul_torre_destruida.ogg");
@@ -63,8 +62,18 @@ export function LiveAPIWatcher({ lastFrameWindow, gameMetadata, blueTeam, redTea
     const [firstBloodPlay] = useSound(firstblood);
 
     useEffect(() => {
+        const soundData = localStorage.getItem("sound");
+        let isMuted = false;
+        if(soundData) {
+            if (soundData === "mute") {
+                isMuted = true;
+            }else if(soundData === "unmute"){
+                isMuted = false;
+            }
+        }
+
         // Topo = prioridade para o som
-        let isPlaying = false;
+        let isPlaying = isMuted;
 
         if(status.inhibitors.blue !== lastFrameWindow.blueTeam.inhibitors){
             createToast(true, isPlaying, inib_red.default, "Destruiu um inibidor", blueTeam.image);
