@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/live-lol-esports/static/css/main.6445fb73.chunk.css",
-    "main.js": "/live-lol-esports/static/js/main.d362d1a3.chunk.js",
+    "main.js": "/live-lol-esports/static/js/main.0c52a708.chunk.js",
     "runtime-main.js": "/live-lol-esports/static/js/runtime-main.c0070149.js",
     "static/css/2.ff80f086.chunk.css": "/live-lol-esports/static/css/2.ff80f086.chunk.css",
     "static/js/2.29e22253.chunk.js": "/live-lol-esports/static/js/2.29e22253.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/azul_dragao.ogg": "/live-lol-esports/static/media/azul_dragao.01162a2e.ogg",
     "static/media/azul_inib_destruido.ogg": "/live-lol-esports/static/media/azul_inib_destruido.e4b2c139.ogg",
     "static/media/azul_torre_destruida.ogg": "/live-lol-esports/static/media/azul_torre_destruida.09d953cd.ogg",
-    "static/media/banner-apostasdomaul.658a70af.jpg": "/live-lol-esports/static/media/banner-apostasdomaul.658a70af.jpg",
+    "static/media/banner-apostasdomaul.12b4c30e.jpg": "/live-lol-esports/static/media/banner-apostasdomaul.12b4c30e.jpg",
     "static/media/baron.99733951.svg": "/live-lol-esports/static/media/baron.99733951.svg",
     "static/media/campeao_eliminado.ogg": "/live-lol-esports/static/media/campeao_eliminado.8adf323f.ogg",
     "static/media/dragon-cloud.1a55fc30.svg": "/live-lol-esports/static/media/dragon-cloud.1a55fc30.svg",
@@ -41,6 +41,6 @@
     "static/css/2.ff80f086.chunk.css",
     "static/js/2.29e22253.chunk.js",
     "static/css/main.6445fb73.chunk.css",
-    "static/js/main.d362d1a3.chunk.js"
+    "static/js/main.0c52a708.chunk.js"
   ]
 }
