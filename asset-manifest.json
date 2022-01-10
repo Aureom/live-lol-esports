@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/live-lol-esports/static/css/main.e73be50f.chunk.css",
-    "main.js": "/live-lol-esports/static/js/main.477c3079.chunk.js",
+    "main.js": "/live-lol-esports/static/js/main.2e4fa154.chunk.js",
     "runtime-main.js": "/live-lol-esports/static/js/runtime-main.c0070149.js",
     "static/css/2.ff80f086.chunk.css": "/live-lol-esports/static/css/2.ff80f086.chunk.css",
     "static/js/2.26c45894.chunk.js": "/live-lol-esports/static/js/2.26c45894.chunk.js",
@@ -16,8 +16,10 @@
     "static/media/banner-apostasdomaul.12b4c30e.jpg": "/live-lol-esports/static/media/banner-apostasdomaul.12b4c30e.jpg",
     "static/media/baron.99733951.svg": "/live-lol-esports/static/media/baron.99733951.svg",
     "static/media/campeao_eliminado.ogg": "/live-lol-esports/static/media/campeao_eliminado.8adf323f.ogg",
+    "static/media/dragon-chemtech.d585caa2.svg": "/live-lol-esports/static/media/dragon-chemtech.d585caa2.svg",
     "static/media/dragon-cloud.1a55fc30.svg": "/live-lol-esports/static/media/dragon-cloud.1a55fc30.svg",
     "static/media/dragon-elder.2dd99da4.svg": "/live-lol-esports/static/media/dragon-elder.2dd99da4.svg",
+    "static/media/dragon-hextech.c3698ccf.svg": "/live-lol-esports/static/media/dragon-hextech.c3698ccf.svg",
     "static/media/dragon-infernal.43bfa7f3.svg": "/live-lol-esports/static/media/dragon-infernal.43bfa7f3.svg",
     "static/media/dragon-mountain.69282d8c.svg": "/live-lol-esports/static/media/dragon-mountain.69282d8c.svg",
     "static/media/dragon-ocean.ad7cfa52.svg": "/live-lol-esports/static/media/dragon-ocean.ad7cfa52.svg",
@@ -41,6 +43,6 @@
     "static/css/2.ff80f086.chunk.css",
     "static/js/2.26c45894.chunk.js",
     "static/css/main.e73be50f.chunk.css",
-    "static/js/main.477c3079.chunk.js"
+    "static/js/main.2e4fa154.chunk.js"
   ]
 }
