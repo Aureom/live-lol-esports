@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/live-lol-esports/static/css/main.f38bfea5.chunk.css",
-    "main.js": "/live-lol-esports/static/js/main.d29a328a.chunk.js",
+    "main.js": "/live-lol-esports/static/js/main.d74ec2d6.chunk.js",
     "runtime-main.js": "/live-lol-esports/static/js/runtime-main.c0070149.js",
     "static/css/2.ff80f086.chunk.css": "/live-lol-esports/static/css/2.ff80f086.chunk.css",
     "static/js/2.1110bd5f.chunk.js": "/live-lol-esports/static/js/2.1110bd5f.chunk.js",
@@ -9,6 +9,7 @@
     "index.html": "/live-lol-esports/index.html",
     "static/js/2.1110bd5f.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/2.1110bd5f.chunk.js.LICENSE.txt",
     "static/js/3.d95c7b53.chunk.js.LICENSE.txt": "/live-lol-esports/static/js/3.d95c7b53.chunk.js.LICENSE.txt",
+    "static/media/aureom100.972b70ed.jpg": "/live-lol-esports/static/media/aureom100.972b70ed.jpg",
     "static/media/azul_baron.ogg": "/live-lol-esports/static/media/azul_baron.68b74d70.ogg",
     "static/media/azul_dragao.ogg": "/live-lol-esports/static/media/azul_dragao.01162a2e.ogg",
     "static/media/azul_inib_destruido.ogg": "/live-lol-esports/static/media/azul_inib_destruido.e4b2c139.ogg",
@@ -43,6 +44,6 @@
     "static/css/2.ff80f086.chunk.css",
     "static/js/2.1110bd5f.chunk.js",
     "static/css/main.f38bfea5.chunk.css",
-    "static/js/main.d29a328a.chunk.js"
+    "static/js/main.d74ec2d6.chunk.js"
   ]
 }
