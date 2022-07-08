@@ -62,35 +62,14 @@ export function getGameDetails(gameId: string) {
 
 
 export function getISODateMultiplyOf10() {
-    let date = new Date(Date.now() - 50000);
+    const date = new Date();
     date.setMilliseconds(0);
-
-    if(date.getSeconds() % 10 !== 0) {
-        date.setSeconds(date.getSeconds() - date.getSeconds() % 10);
-    }
-
-    return date.toISOString();
-}
-
-/*
-message: "disallowed window with end time less than 45 sec old (was 42.99 sec old). requested window:
- [2021-03-29T21:24:00Z, 2021-03-29T21:24:10Z]). current time: 2021-03-29T21:24:52.991277Z"
- */
-export function dateFixWindowTime(errorMessage: string) {
-    //let secondsToDelay = parseInt(errorMessage.split("disallowed window with end time less than ")[1].split(" sec old")[0]) + 10;
-    //let currentTimeString = errorMessage.split("current time: ");
-
-    let secondsToDelay = 55;
-    //let date = new Date(currentTimeString[1]);
-    let date = new Date(Date.now())
-    date.setMilliseconds(0);
+  
     if (date.getSeconds() % 10 !== 0) {
-        date.setSeconds(date.getSeconds() - date.getSeconds() % 10);
+      date.setSeconds(date.getSeconds() - (date.getSeconds() % 10));
     }
-
-    if(secondsToDelay % 10 !== 0) {
-        date.setSeconds(date.getSeconds() - ( secondsToDelay + (secondsToDelay % 10) ));
-    }
-
+  
+    date.setSeconds(date.getSeconds() - 60);
+  
     return date.toISOString();
 }
