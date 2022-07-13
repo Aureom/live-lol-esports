@@ -1,7 +1,7 @@
 import './styles/playerStatusStyle.css'
 
 import {
-    dateFixWindowTime, getGameDetails,
+    getGameDetails,
     getISODateMultiplyOf10,
     getLiveDetailsGame,
     getLiveWindowGame
@@ -46,23 +46,7 @@ export function LiveGame({ match }: any) {
 
                 setLastFrameWindow(frames[frames.length - 1])
                 setMetadata(response.data.gameMetadata)
-            }).catch(error => {
-
-                    if (error.response?.status === 400) {
-                        if(error.response.data !== undefined) {
-                            let errorMessage = error.response.data.message;
-                            getLiveWindowGame(gameId, dateFixWindowTime(errorMessage)).then(response => {
-                                let frames = response.data.frames;
-                                if (frames === undefined) return;
-
-                                setLastFrameWindow(frames[frames.length - 1])
-                                setMetadata(response.data.gameMetadata)
-                            })
-                        }
-                    }
-
-                }
-            )
+            });
         }
 
         function getLiveGameStatus() {
@@ -72,22 +56,7 @@ export function LiveGame({ match }: any) {
                 if(frames === undefined) return;
 
                 setLastFrameDetails(frames[frames.length - 1])
-            }).catch(error => {
-
-                    if (error.response?.status === 400) {
-                        if(error.response.data !== undefined) {
-                            let errorMessage = error.response.data.message;
-                            getLiveDetailsGame(gameId, dateFixWindowTime(errorMessage)).then(response => {
-                                let frames = response.data.frames;
-                                if(frames === undefined) return;
-
-                                setLastFrameDetails(frames[frames.length - 1])
-                            })
-                        }
-                    }
-
-                }
-            )
+            });
         }
 
         function getLiveGameDetails() {
